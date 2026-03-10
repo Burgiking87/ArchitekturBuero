@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FORM & RAUM — Architekturbüro</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <nav>
+    <div class="logo">FORM <span>&</span> RAUM</div>
+    <ul class="nav-links">
+      <li><a href="#" class="active" onclick="showPage('home',this)">Neuigkeiten</a></li>
+      <li><a href="#" onclick="showPage('team',this)">Team</a></li>
+      <li><a href="#" onclick="showPage('gallery',this)">Galerie</a></li>
+      <li><a href="#" onclick="showPage('contact',this)">Kontakt</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ═══════════════ PAGE: HOME ═══════════════ -->
+  <div class="page active" id="page-home">
+    <section class="hero">
+      <div class="hero-text">
+        <p class="hero-eyebrow animate">Wien · Gegründet 1998</p>
+        <h1 class="hero-headline animate">
+          Raum<br>schafft<br><em>Leben.</em>
+        </h1>
+        <p class="hero-body animate">
+          Wir entwerfen Gebäude, die mehr sind als Strukturen — sie sind Statements. 
+          Jedes Projekt verbindet funktionale Präzision mit zeitloser Ästhetik.
+        </p>
+        <a class="hero-cta animate" href="#" onclick="showPage('gallery', document.querySelectorAll('.nav-links a')[2]); return false;">
+          Projekte ansehen <span>→</span>
+        </a>
+      </div>
+      <div class="hero-visual" id="heroVisual">
+        <div class="building-scene" id="heroBuilding">
+          <!-- Animated SVG Building -->
+          <svg id="heroBuildingSvg" viewBox="0 0 400 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="buildingGrad" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#1a1a18"/>
+                <stop offset="50%" stop-color="#242422"/>
+                <stop offset="100%" stop-color="#1a1a18"/>
+              </linearGradient>
+              <linearGradient id="reflGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#3a3a38"/>
+                <stop offset="100%" stop-color="transparent"/>
+              </linearGradient>
+              <filter id="glow">
+                <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+                <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+              </filter>
+            </defs>
+            <!-- Sky background particles -->
+            <g class="sky-particles">
+              <circle cx="50" cy="40" r="1" fill="#3a3a38" opacity="0.4"/>
+              <circle cx="120" cy="25" r="1.5" fill="#3a3a38" opacity="0.3"/>
+              <circle cx="200" cy="60" r="1" fill="#3a3a38" opacity="0.5"/>
+              <circle cx="310" cy="30" r="1" fill="#3a3a38" opacity="0.3"/>
+              <circle cx="370" cy="55" r="1.5" fill="#3a3a38" opacity="0.4"/>
+              <circle cx="85" cy="70" r="0.8" fill="#3a3a38" opacity="0.3"/>
+              <circle cx="260" cy="15" r="1" fill="#3a3a38" opacity="0.4"/>
+            </g>
+            <!-- Main building body -->
+            <g class="building-main" style="transform-origin:200px 440px;">
+              <rect x="80" y="80" width="240" height="360" fill="url(#buildingGrad)" stroke="#2a2a28" stroke-width="0.5"/>
+              <!-- Vertical dividers -->
+              <line x1="160" x2="160" y1="80" y2="440" stroke="#2a2a28" stroke-width="0.8"/>
+              <line x1="240" x2="240" y1="80" y2="440" stroke="#2a2a28" stroke-width="0.8"/>
+              <!-- Horizontal floors -->
+              <line x1="80" x2="320" y1="150" y2="150" stroke="#2a2a28" stroke-width="0.6"/>
+              <line x1="80" x2="320" y1="220" y2="220" stroke="#2a2a28" stroke-width="0.6"/>
+              <line x1="80" x2="320" y1="290" y2="290" stroke="#2a2a28" stroke-width="0.6"/>
+              <line x1="80" x2="320" y1="360" y2="360" stroke="#2a2a28" stroke-width="0.6"/>
+              <!-- Windows that animate -->
+              <rect class="win" x="90" y="90" width="60" height="50" fill="#2a2a28"/>
+              <rect class="win" x="170" y="90" width="60" height="50" fill="#3a3a38"/>
+              <rect class="win" x="250" y="90" width="60" height="50" fill="#1e1e1c"/>
+              <rect class="win" x="90" y="160" width="60" height="50" fill="#3a3a38"/>
+              <rect class="win" x="170" y="160" width="60" height="50" fill="#4a4a48"/>
+              <rect class="win" x="250" y="160" width="60" height="50" fill="#2a2a28"/>
+              <rect class="win" x="90" y="230" width="60" height="50" fill="#1e1e1c"/>
+              <rect class="win" x="170" y="230" width="60" height="50" fill="#3a3a38"/>
+              <rect class="win" x="250" y="230" width="60" height="50" fill="#4a4a48"/>
+              <rect class="win" x="90" y="300" width="60" height="50" fill="#3a3a38"/>
+              <rect class="win" x="170" y="300" width="60" height="50" fill="#2a2a28"/>
+              <rect class="win" x="250" y="300" width="60" height="50" fill="#3a3a38"/>
+              <!-- Entry -->
+              <rect x="155" y="370" width="90" height="70" fill="#1a1a18"/>
+              <line x1="200" x2="200" y1="370" y2="440" stroke="#2a2a28" stroke-width="0.8"/>
+            </g>
+            <!-- Ground line -->
+            <line x1="0" x2="400" y1="440" y2="440" stroke="#2a2a28" stroke-width="1"/>
+            <!-- Reflection -->
+            <rect x="80" y="440" width="240" height="50" fill="url(#reflGrad)" opacity="0.3"/>
+            <!-- Floating elements that react to mouse -->
+            <g class="float-elements">
+              <rect class="float-rect" x="30" y="200" width="30" height="2" fill="#3a3a38" opacity="0.4"/>
+              <rect class="float-rect" x="340" y="280" width="25" height="2" fill="#3a3a38" opacity="0.3"/>
+              <rect class="float-rect" x="20" y="350" width="20" height="2" fill="#3a3a38" opacity="0.5"/>
+              <circle class="float-dot" cx="350" cy="180" r="3" fill="none" stroke="#3a3a38" stroke-width="1" opacity="0.5"/>
+              <circle class="float-dot" cx="25" cy="130" r="2" fill="none" stroke="#3a3a38" stroke-width="1" opacity="0.4"/>
+            </g>
+          </svg>
+        </div>
+        <div class="hero-num">01</div>
+        <div class="parallax-bg" id="parallaxBg"></div>
+      </div>
+    </section>
+
+    <!-- Stats -->
+    <div class="stats-bar">
+      <div class="stat-item">
+        <span class="stat-num" data-target="87">0</span>
+        <span class="stat-label">Projekte realisiert</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num" data-target="26">0</span>
+        <span class="stat-label">Jahre Erfahrung</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num" data-target="14">0</span>
+        <span class="stat-label">Auszeichnungen</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num" data-target="12">0</span>
+        <span class="stat-label">Teammitglieder</span>
+      </div>
+    </div>
+
+    <!-- News -->
+    <section class="section">
+      <div class="section-header">
+        <h2 class="section-title">Neuigkeiten</h2>
+        <span class="section-label">Aktuelles — 2024</span>
+      </div>
+      <div class="news-grid">
+        <div class="news-card tilt-card">
+          <div class="news-card-inner">
+            <div class="news-date">15. November 2024</div>
+            <span class="news-tag">Auszeichnung</span>
+            <h3 class="news-title">Österreichischer Architekturpreis 2024</h3>
+            <p class="news-excerpt">Das Projekt „Haus im Weinberg" wurde mit dem renommierten Architekturpreis in der Kategorie Wohnbau ausgezeichnet.</p>
+          </div>
+          <span class="news-arrow">↗</span>
+        </div>
+        <div class="news-card tilt-card">
+          <div class="news-card-inner">
+            <div class="news-date">03. Oktober 2024</div>
+            <span class="news-tag">Projekt</span>
+            <h3 class="news-title">Baubeginn Kulturzentrum Graz</h3>
+            <p class="news-excerpt">Nach zwei Jahren Planung beginnt die Umsetzung des Kulturzentrums im Herzen von Graz. Ein Gebäude, das Kunst und Öffentlichkeit neu verbindet.</p>
+          </div>
+          <span class="news-arrow">↗</span>
+        </div>
+        <div class="news-card tilt-card">
+          <div class="news-card-inner">
+            <div class="news-date">21. September 2024</div>
+            <span class="news-tag">Publikation</span>
+            <h3 class="news-title">Monografie erschienen</h3>
+            <p class="news-excerpt">Im Birkhäuser Verlag erscheint die erste umfassende Monografie über unsere Arbeit der letzten 25 Jahre.</p>
+          </div>
+          <span class="news-arrow">↗</span>
+        </div>
+        <div class="news-card tilt-card">
+          <div class="news-card-inner">
+            <div class="news-date">08. August 2024</div>
+            <span class="news-tag">Wettbewerb</span>
+            <h3 class="news-title">1. Preis: Wohnanlage Linz Nord</h3>
+            <p class="news-excerpt">Unser Entwurf überzeugte die Jury durch seine klare Sprache und die durchdachte Einbindung in den Bestand.</p>
+          </div>
+          <span class="news-arrow">↗</span>
+        </div>
+        <div class="news-card tilt-card">
+          <div class="news-card-inner">
+            <div class="news-date">14. Juni 2024</div>
+            <span class="news-tag">Vortrag</span>
+            <h3 class="news-title">Lecture Series — TU Wien</h3>
+            <p class="news-excerpt">Dipl.-Ing. Maria Hofmann hielt an der TU Wien einen Gastvortrag über nachhaltiges Bauen im alpinen Kontext.</p>
+          </div>
+          <span class="news-arrow">↗</span>
+        </div>
+        <div class="news-card tilt-card">
+          <div class="news-card-inner">
+            <div class="news-date">28. März 2024</div>
+            <span class="news-tag">Fertigstellung</span>
+            <h3 class="news-title">Villa Sonnberg übergeben</h3>
+            <p class="news-excerpt">Nach 18 Monaten Bauzeit wurde die Villa Sonnberg in der Wachau offiziell an die Bauherrschaft übergeben.</p>
+          </div>
+          <span class="news-arrow">↗</span>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-logo">FORM & RAUM Architektur ZT GmbH</div>
+      <div class="footer-copy">© 2024 — Wien, Österreich</div>
+    </footer>
+  </div>
+
+  <!-- ═══════════════ PAGE: TEAM ═══════════════ -->
+  <div class="page" id="page-team">
+    <section class="team-hero">
+      <h1 class="team-hero-title animate">Das<br><em>Team.</em></h1>
+      <p class="team-hero-text animate">
+        Hinter jedem Gebäude stehen Menschen mit Visionen. Unser interdisziplinäres Team aus Architekten, Designern und Ingenieuren arbeitet täglich daran, außergewöhnliche Räume zu erschaffen.
+      </p>
+    </section>
+    <div class="team-grid" id="teamGrid"></div>
+    <footer>
+      <div class="footer-logo">FORM & RAUM Architektur ZT GmbH</div>
+      <div class="footer-copy">© 2024 — Wien, Österreich</div>
+    </footer>
+  </div>
+
+  <!-- ═══════════════ PAGE: GALLERY ═══════════════ -->
+  <div class="page" id="page-gallery">
+    <section class="gallery-header">
+      <h1 class="gallery-title animate">Unsere<br><em>Projekte.</em></h1>
+      <div class="gallery-filters animate">
+        <button class="filter-btn active" onclick="filterGallery('all',this)">Alle</button>
+        <button class="filter-btn" onclick="filterGallery('gebaut',this)">Gebaut</button>
+        <button class="filter-btn" onclick="filterGallery('geplant',this)">Geplant</button>
+      </div>
+    </section>
+    <div class="gallery-masonry" id="galleryMasonry"></div>
+    <footer>
+      <div class="footer-logo">FORM & RAUM Architektur ZT GmbH</div>
+      <div class="footer-copy">© 2024 — Wien, Österreich</div>
+    </footer>
+  </div>
+
+  <!-- ═══════════════ PAGE: KONTAKT ═══════════════ -->
+  <div class="page" id="page-contact">
+    <section class="contact-hero">
+      <h1 class="contact-title animate">Kontakt.</h1>
+    </section>
+    <div class="contact-grid">
+      <div class="contact-block tilt-card">
+        <div class="contact-label">Adresse</div>
+        <div class="contact-value">Schottengasse 12<br>1010 Wien, Österreich</div>
+      </div>
+      <div class="contact-block tilt-card">
+        <div class="contact-label">Telefon</div>
+        <div class="contact-value">+43 1 512 34 56</div>
+      </div>
+      <div class="contact-block tilt-card">
+        <div class="contact-label">E-Mail</div>
+        <div class="contact-value">office@form-raum.at</div>
+      </div>
+      <div class="contact-block tilt-card">
+        <div class="contact-label">Öffnungszeiten</div>
+        <div class="contact-value">Mo–Fr: 09:00 – 18:00</div>
+      </div>
+    </div>
+    <footer>
+      <div class="footer-logo">FORM & RAUM Architektur ZT GmbH</div>
+      <div class="footer-copy">© 2024 — Wien, Österreich</div>
+    </footer>
+  </div>
+
+  <script src="js/buildings.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
