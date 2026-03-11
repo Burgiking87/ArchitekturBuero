@@ -18,6 +18,16 @@
     <ul class="nav-links">
       <li><a href="#" class="active" onclick="showPage('home',this)">Neuigkeiten</a></li>
       <li><a href="#" onclick="showPage('team',this)">Team</a></li>
+      <li class="nav-dropdown">
+        <a href="#" class="nav-dropdown-toggle" onclick="showPage('projekte',this); return false;">Projekte</a>
+        <ul class="dropdown-menu">
+          <li><a href="#" onclick="showPage('projekte', document.querySelector('.nav-dropdown-toggle')); filterProjekte('privatbau'); return false;">Privatbauten</a></li>
+          <li><a href="#" onclick="showPage('projekte', document.querySelector('.nav-dropdown-toggle')); filterProjekte('gewerbebau'); return false;">Gewerbebauten</a></li>
+          <li><a href="#" onclick="showPage('projekte', document.querySelector('.nav-dropdown-toggle')); filterProjekte('oeffentlich'); return false;">Öffentliche Bauten</a></li>
+          <li><a href="#" onclick="showPage('projekte', document.querySelector('.nav-dropdown-toggle')); filterProjekte('wohnbau'); return false;">Wohnbauten</a></li>
+          <li><a href="#" onclick="showPage('projekte', document.querySelector('.nav-dropdown-toggle')); filterProjekte('kulturbauten'); return false;">Kulturbauten</a></li>
+        </ul>
+      </li>
       <li><a href="#" onclick="showPage('gallery',this)">Galerie</a></li>
       <li><a href="#" onclick="showPage('contact',this)">Kontakt</a></li>
     </ul>
@@ -263,6 +273,62 @@
         <div class="contact-value">Mo–Fr: 09:00 – 18:00</div>
       </div>
     </div>
+    <footer>
+      <div class="footer-logo">FORM & RAUM Architektur ZT GmbH</div>
+      <div class="footer-copy">© 2024 — Wien, Österreich</div>
+    </footer>
+  </div>
+
+  <!-- ═══════════════ PAGE: PROJEKTE ═══════════════ -->
+  <div class="page" id="page-projekte">
+    <section class="projekte-hero">
+      <div class="projekte-hero-left">
+        <p class="hero-eyebrow animate">Ausgewählte Arbeiten</p>
+        <h1 class="projekte-title animate">Projekte.</h1>
+      </div>
+      <div class="projekte-cats animate">
+        <button class="pkat-btn active" data-kat="alle" onclick="filterProjekte('alle')">
+          <span class="pkat-num">08</span>
+          <span class="pkat-label">Alle</span>
+          <span class="pkat-arrow">→</span>
+        </button>
+        <button class="pkat-btn" data-kat="privatbau" onclick="filterProjekte('privatbau')">
+          <span class="pkat-num">02</span>
+          <span class="pkat-label">Privatbauten</span>
+          <span class="pkat-arrow">→</span>
+        </button>
+        <button class="pkat-btn" data-kat="gewerbebau" onclick="filterProjekte('gewerbebau')">
+          <span class="pkat-num">02</span>
+          <span class="pkat-label">Gewerbebauten</span>
+          <span class="pkat-arrow">→</span>
+        </button>
+        <button class="pkat-btn" data-kat="oeffentlich" onclick="filterProjekte('oeffentlich')">
+          <span class="pkat-num">02</span>
+          <span class="pkat-label">Öffentliche Bauten</span>
+          <span class="pkat-arrow">→</span>
+        </button>
+        <button class="pkat-btn" data-kat="wohnbau" onclick="filterProjekte('wohnbau')">
+          <span class="pkat-num">01</span>
+          <span class="pkat-label">Wohnbauten</span>
+          <span class="pkat-arrow">→</span>
+        </button>
+        <button class="pkat-btn" data-kat="kulturbauten" onclick="filterProjekte('kulturbauten')">
+          <span class="pkat-num">01</span>
+          <span class="pkat-label">Kulturbauten</span>
+          <span class="pkat-arrow">→</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Active category label -->
+    <div class="projekte-active-bar">
+      <span class="projekte-active-label" id="projekteActiveLabel">Alle Projekte</span>
+      <span class="projekte-active-count" id="projekteActiveCount">8 Projekte</span>
+    </div>
+
+    <!-- Project list (horizontal rows) -->
+    <div class="projekte-list" id="projekteListe"></div>
+
     <footer>
       <div class="footer-logo">FORM & RAUM Architektur ZT GmbH</div>
       <div class="footer-copy">© 2024 — Wien, Österreich</div>
